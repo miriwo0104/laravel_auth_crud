@@ -19,9 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => ['api']], function() {
-    Route::get('/api/index', 'Api\ContentController@index')->name('content.index');
-    Route::post('/api/save', 'Api\ContentController@save')->name('content.save');
-    Route::get('/api/detail/{content_id}', 'Api\ContentController@detail')->name('content.detail');
-    Route::post('/api/update/{content_id}', 'Api\ContentController@update')->name('content.update');
-    Route::get('/api/destroy/{content_id}', 'Api\ContentController@destroy')->name('content.destroy');
+    Route::get('/index', 'Api\ContentController@index')->name('content.index');
+    Route::post('/save', 'Api\ContentController@save')->name('content.save');
+    Route::get('/detail/{content_id}', 'Api\ContentController@detail')->name('content.detail');
+    Route::post('/update/{content_id}', 'Api\ContentController@update')->name('content.update');
+    Route::get('/destroy/{content_id}', 'Api\ContentController@destroy')->name('content.destroy');
 });

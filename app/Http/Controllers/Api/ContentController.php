@@ -12,7 +12,7 @@ class ContentController extends Controller
     public function index()
     {
         $contents = Content::all();
-        return view('contents.index', ['contents' => $contents]);
+        return $contents;
     }
 
     public function create()
