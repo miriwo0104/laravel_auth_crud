@@ -16,9 +16,8 @@ class CreateContentsTable extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->string('title', 100);
-            $table->string('detaile', 1000);
+            $table->string('detail', 1000);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
