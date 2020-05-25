@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use App\Http\Requests\StoreContentPost;
+
 use App\Content;
 
 class ContentController extends Controller
 {
-//    public function index(Requsest $request)
     public function index()
     {
         $contents = Content::all();
@@ -19,7 +20,8 @@ class ContentController extends Controller
         return view('contents.create');
     }
 
-    public function save(Request $request)
+    //下記を修正する
+    public function save(StoreContentPost $request)
     {
         $new_content = new Content();
         $new_content->title = $request['title'];
@@ -42,7 +44,8 @@ class ContentController extends Controller
         return view('contents.edit', ['content' => $content]);
     }
 
-    public function update($content_id, Request $request)
+    //下記を修正する
+    public function update($content_id, StoreContentPost $request)
     {
         $content = Content::find($content_id);
         $content->title = $request['title'];
