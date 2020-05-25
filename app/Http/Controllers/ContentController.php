@@ -21,6 +21,16 @@ class ContentController extends Controller
 
     public function save(Request $request)
     {
+        //バリデーションルール定義
+        $rules = [
+            'title' => ['required'],
+            'detail' => ['required'],
+        ];
+
+        //ルールを使用した確認
+        $this->validate($request, $rules);
+
+
         $new_content = new Content();
         $new_content->title = $request['title'];
         $new_content->detail = $request['detail'];
