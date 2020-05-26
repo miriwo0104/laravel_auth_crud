@@ -9,7 +9,6 @@ use App\Http\Requests\StoreContentPost;
 
 class ContentController extends Controller
 {
-//    public function index(Requsest $request)
     public function index()
     {
         $contents = Content::all();
