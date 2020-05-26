@@ -24,27 +24,4 @@ class ContentController extends Controller
 
         return redirect(route('api_content.index'));
     }
-
-    public function detail($content_id)
-    {
-        $content = Content::find($content_id);
-        return $content;
-    }
-
-    public function update($content_id, Request $request)
-    {
-        $content = Content::find($content_id);
-        $content->title = $request['title'];
-        $content->detail = $request['detail'];
-        $content->save();
-        return redirect(route('api_content.index'));
-    }
-
-    public function destroy($content_id)
-    {
-        $content = Content::find($content_id);
-        $content->delete();
-        return redirect(route('api_content.index'));
-    }
-
 }
