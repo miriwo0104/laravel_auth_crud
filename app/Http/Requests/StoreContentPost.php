@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
 class StoreContentPost extends FormRequest
 {
     /**
@@ -29,5 +32,15 @@ class StoreContentPost extends FormRequest
             'title' => 'required',
             'detail' => 'required',
         ];
+    }
+
+    public function failedValidation(Validator $validator)
+    {
+        $response['summary'] = 'バリデーションによりこのリクエストは拒否されました';
+        $response['errors']  = $validator->errors()->toArray();
+    
+        throw new HttpResponseException(
+            response()->json($response)
+        );
     }
 }
