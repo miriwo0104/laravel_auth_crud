@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Content;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreContentPost;
 
 class ContentController extends Controller
 {
@@ -15,7 +16,7 @@ class ContentController extends Controller
         return $contents;
     }
 
-    public function save(Request $request)
+    public function save(StoreContentPost $request)
     {
         $new_content = new Content();
         $new_content->title = $request['title'];
